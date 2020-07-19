@@ -1,0 +1,3 @@
+include ':nlecloud-sdk'
+include ':app'
+rootProject.name = "AirConditioningManager"
