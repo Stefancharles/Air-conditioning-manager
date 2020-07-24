@@ -80,8 +80,8 @@ public class HistoryActivity extends AppCompatActivity {
      * 获取温度记录
      */
     private void getTempData() {
-        netWorkBusiness.getSensorData("41210", "temperature", "6", "30", "2019-07-01 00:00:00",
-                "2019-07-20 00:00:00", "DESC", "20", "0", new NCallBack<BaseResponseEntity<SensorDataPageDTO>>() {
+        netWorkBusiness.getSensorData("41210", "currentTemp", "6", "30", "2020-07-19 00:00:00",
+                "2020-07-22 00:00:00", "DESC", "20", "0", new NCallBack<BaseResponseEntity<SensorDataPageDTO>>() {
                     @Override
                     protected void onResponse(BaseResponseEntity<SensorDataPageDTO> response) {
 
@@ -117,7 +117,7 @@ public class HistoryActivity extends AppCompatActivity {
                                     values.put("temperature", resultObj1.get("Value").toString());
                                     values.put("time", resultObj1.get("RecordTime").toString());
                                     //把数据库的数据存到data1中,然后显示在listview里面.
-                                    dbOpenHelper.getReadableDatabase().insert("record", null, values);
+                                    //dbOpenHelper.getReadableDatabase().insert("record", null, values);
                                 }
                                 lastrecord = lastrecord + count;    //20,40
                                 SimpleAdapter adapter = new SimpleAdapter(HistoryActivity.this, data, R.layout.item, new String[]{"Id", "Temp", "Time"}, new int[]{R.id.showid, R.id.showTemp, R.id.showTime});

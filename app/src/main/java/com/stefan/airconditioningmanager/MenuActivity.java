@@ -186,7 +186,7 @@ public class MenuActivity extends Activity {
      * 获取温度的方法
      */
     private void getTemperature() {
-        netWorkBusiness.getSensor(deviceID, "temperature", new NCallBack<BaseResponseEntity<SensorInfo>>() {
+        netWorkBusiness.getSensor(deviceID, "currentTemp", new NCallBack<BaseResponseEntity<SensorInfo>>() {
             @Override
             public void onResponse(final Call<BaseResponseEntity<SensorInfo>> call, final Response<BaseResponseEntity<SensorInfo>> response) {
                 BaseResponseEntity baseResponseEntity = response.body();
