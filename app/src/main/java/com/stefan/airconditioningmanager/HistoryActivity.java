@@ -117,7 +117,7 @@ public class HistoryActivity extends AppCompatActivity {
                                     values.put("temperature", resultObj1.get("Value").toString());
                                     values.put("time", resultObj1.get("RecordTime").toString());
                                     //把数据库的数据存到data1中,然后显示在listview里面.
-                                    //dbOpenHelper.getReadableDatabase().insert("record", null, values);
+                                    dbOpenHelper.getReadableDatabase().insert("record", null, values);
                                 }
                                 lastrecord = lastrecord + count;    //20,40
                                 SimpleAdapter adapter = new SimpleAdapter(HistoryActivity.this, data, R.layout.item, new String[]{"Id", "Temp", "Time"}, new int[]{R.id.showid, R.id.showTemp, R.id.showTime});
@@ -159,5 +159,6 @@ public class HistoryActivity extends AppCompatActivity {
         GetTemp = findViewById(R.id.getTemp);
         SaveTemp = findViewById(R.id.saveTemp);
         DeleteTemp = findViewById(R.id.deleteTemp);
+        dbOpenHelper = new DBOpenHelper(HistoryActivity.this,"record.db",null,1);
     }
 }
